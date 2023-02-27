@@ -1,0 +1,1175 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;700&family=Poppins:wght@600&display=swap');
+
+// Mixins
+@mixin display($f-direction: row, $j-content: flex-start, $a-items: stretch) {
+    display: flex;
+    flex-direction: $f-direction;
+    justify-content: $j-content;
+    align-items: $a-items;
+}
+
+// Variables
+$pale-cyan: hsl(193, 100%, 96%);
+$dark-cyan: hsl(192, 100%, 9%);
+$dark-cyan-light: hsla(192, 100%, 9%, 0.5);
+$grayish-blue: hsl(208, 11%, 55%);
+$pink: hsl(322, 100%, 66%);
+$pink-light: hsl(322, 100%, 80%);
+$white: hsl(0, 0%, 100%);
+
+// Styles
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    min-width: 100vw;
+
+    body {
+        min-height: 100vh;
+        overflow-x: hidden;
+    }
+}
+
+.container {
+    @include display($f-direction: column, $a-items: center);
+    width: 100%;
+    /* display: flex;
+    align-items: center;
+    flex-direction: column; */
+
+    .back {
+        width: 100vw;
+        height: 45rem;
+        position: absolute;
+        background-image: url("../assets/img/bg-hero-desktop.svg");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-color: $pale-cyan;
+        z-index: -1;
+    }
+
+    .header {
+        @include display($f-direction: column, $j-content: space-between);
+        height: 45rem;
+        padding: 3rem 5rem 4.3rem 5rem;
+        box-sizing: border-box;
+        width: 90rem;
+
+        .navbar {
+            @include display($j-content: space-between, $a-items: center);
+
+            .icon {
+                cursor: pointer;
+                width: 200px;
+                height: 30px;
+            }
+
+            .nav-button {
+                border: none;
+                border-radius: 25px;
+                cursor: pointer;
+                color: $dark-cyan;
+                font-family: 'Open Sans', sans-serif;
+                font-weight: 700;
+                font-size: 14px;
+                width: 200px;
+                height: 50px;
+                background-color: $white;
+                box-shadow: 2px 2px 15px -5px hsl(208deg 11% 65%);
+                transition: all 0.2s linear;
+
+                &:hover {
+                    color: $dark-cyan-light;
+                }
+            }
+        }
+
+        .header-desc {
+            display: flex;
+
+            .left-side {
+                @include display($f-direction: column, $j-content: center);
+                gap: 2rem;
+                width: 46%;
+
+                h1 {
+                    font-family: 'Poppins', sans-serif;
+                    font-weight: 600;
+                    font-size: 40px;
+                    color: $dark-cyan;
+                    width: 28rem;
+                    text-align: left;
+                }
+
+                p {
+                    font-family: 'Open Sans', sans-serif;
+                    font-weight: 400;
+                    font-size: 18px;
+                    color: $dark-cyan;
+                    width: 32rem;
+                    line-height: 27px;
+                    text-align: left;
+                }
+
+                .general-button {
+                    font-family: 'Open Sans', sans-serif;
+                    cursor: pointer;
+                    border: none;
+                    color: $white;
+                    background-color: $pink;
+                    border-radius: 27.5px;
+                    width: 280px;
+                    height: 55px;
+                    font-weight: 700;
+                    font-size: 14px;
+                    transition: all 0.2s linear;
+
+                    &:hover {
+                        background-color: $pink-light;
+                    }
+                }
+            }
+            
+            .right-side {
+                @include display($j-content: center, $a-items: center);
+                width: 54%;
+
+                .header-img {
+                    width: 42.5rem;
+                }
+            }
+        }
+    }
+
+    .content {
+        @include display($f-direction: column, $a-items: center);
+        width: 90rem;
+        height: fit-content;
+        gap: 40px;
+        box-sizing: border-box;
+        margin-top: 10rem;
+        margin-bottom: 21.5rem;
+
+        .card {
+            border-radius: 0.8rem;
+            display: flex;
+            width: 77rem;
+            height: 27.5rem;
+            padding: 3rem 3rem 3rem 6rem;
+            box-sizing: border-box;
+            box-shadow: 0px 0px 15px -5px hsla(208, 11%, 55%, 0.8);
+
+            .left-card {
+                @include display($f-direction: column, $j-content: center);
+                gap: 14px;
+                width: 50%;
+
+                h2 {
+                    font-family: 'Poppins', sans-serif;
+                    color: $dark-cyan;
+                    font-weight: 600;
+                    font-size: 28px;
+                }
+
+                p {
+                    font-family: 'Open Sans', sans-serif;
+                    font-size: 18px;
+                    color: $grayish-blue;
+                    width: 30rem;
+                }
+            }
+
+            .right-card {
+                @include display($j-content: center, $a-items: center);
+                width: 50%;
+
+                img {
+                    width: 25.75rem;
+                    object-fit: cover;
+                }
+            }
+        }
+
+        .card-2 {
+            @extend .card;
+            padding: 3rem;
+
+            .left-card {
+                padding-left: 2rem;
+                box-sizing: border-box;
+            }
+
+            .right-card {
+                @include display($j-content: left, $a-items: center);
+                padding-left: 3rem;
+                box-sizing: border-box;
+                width: 50%;
+
+                img {
+                    width: 25.75rem;
+                    object-fit: cover;
+                }
+            }
+        }
+
+        .card-3 {
+            @extend .card;
+        }
+    }
+
+    .footer {
+        @include display($j-content: center);
+        width: 100vw;
+        position: relative;
+        height: 35rem;
+        background-color: $dark-cyan;
+
+        .footer-container {
+            @include display($f-direction: column, $j-content: center);
+            width: 90rem;
+            height: 35rem;
+            box-sizing: border-box;
+            padding: 8rem 7.5rem 0 7.5rem;
+            gap: 40px;
+
+            .card-start {
+                @include display($f-direction: column, $j-content: center, $a-items: center);
+                background-color: $white;
+                border-radius: 0.8rem;
+                width: 50rem;
+                height: 17.5rem;
+                position: absolute;
+                left: 50%;
+                top: -44px;
+                transform: translate(-50%, -50%);
+                box-shadow: 0px 0px 15px -5px hsla(208, 11%, 55%, 0.8);
+                gap: 2.2rem;
+    
+                h3 {
+                    font-family: 'Poppins', sans-serif;
+                    color: $dark-cyan;
+                    font-size: 32px;
+                }
+    
+                .footer-button {
+                    font-family: 'Open Sans', sans-serif;
+                    cursor: pointer;
+                    width: 25rem;
+                    height: 5rem;
+                    background-color: $pink;
+                    border-radius: 2.5rem;
+                    border: none;
+                    color: hsl(0, 0%, 100%);
+                    font-size: 20px;
+                    font-weight: 700;
+                    box-shadow: 0px 0px 10px -5px hsl(208, 11%, 55%);
+                    transition: all 0.2s linear;
+    
+                    &:hover {
+                        background-color: $pink-light;
+                    }
+                }
+            }
+
+            .icon-2 {
+                width: 240px;
+            }
+
+            .footer-info {
+                display: flex;
+                width: 100%;
+                height: fit-content;
+
+                .desc-1 {
+                    @include display($f-direction: column);
+                    width: 31.25rem;
+                    height: fit-content;
+                    gap: 22px;
+
+                    .location {
+                        display: flex;
+                        gap: 28px;
+
+                        img {
+                            width: 13px;
+                            margin-top: 5px;
+                            height: 18px;
+                        }
+
+                        p {
+                            font-family: 'Open Sans', sans-serif;
+                            color: $white;
+                            font-weight: 400;
+                            width: 21rem;
+                            line-height: 24px;
+                        }
+                    }
+
+                    .phone {
+                        @extend .location;
+                        align-items: center;
+                        gap: 22px;
+
+                        img {
+                            width: 18px;
+                            margin-top: 0;
+                        }
+                    }
+
+                    .mail {
+                        @extend .location;
+                        align-items: center;
+                        gap: 21px;
+
+                        img {
+                            width: 20px;
+                            height: 16px;
+                            margin-top: 0;
+                        }
+                    }
+                }
+
+                .desc-2 {
+                    @include display($f-direction: column);
+                    width: 14rem;
+                    height: fit-content;
+                    gap: 17px;
+
+                    .fake-link {
+                        cursor: pointer;
+                        font-family: 'Open Sans', sans-serif;
+                        color: $white;
+                        font-weight: 400;
+                        font-size: 18px;
+                    }
+                }
+
+                .desc-3 {
+                    width: 15.75rem;
+                    display: flex;
+                    gap: 12px;
+                    height: fit-content;
+
+                    i {
+                        cursor: pointer;
+                        border: 1px solid $white;
+                        border-radius: 16px;
+                        padding: 8px;
+                        color: $white;
+                        width: 16px;
+                        height: 16px;
+                        transition: all 0.2s linear;
+
+                        &:hover {
+                            border: 1px solid $pink;
+                            color: $pink;
+                        }
+                    }
+                }
+            }
+
+            .copyright {
+                align-self: flex-end;
+                font-family: 'Open Sans', sans-serif;
+                color: $white;
+                font-size: 13px;
+            }
+        }        
+    }
+}
+
+// Media queries
+@media (max-width: 1440px) {
+    .container {
+
+        .back {
+            height: 41rem;
+        }
+
+        .header {
+            width: 80rem;
+            height: 41rem;
+    
+            .header-desc {
+    
+                .left-side {
+    
+                    h1 {
+                        font-size: 30px;
+                        width: 26rem;
+                    }
+    
+                    p {
+                        font-size: 15px;
+                        width: 30rem;
+                    }
+    
+                    .general-button {
+                        width: 240px;
+                        font-size: 13px;
+                    }
+                }
+    
+                .right-side {
+    
+                    .header-img {
+                        width: 38rem;
+                    }
+                }
+            }
+        }
+
+        .content {
+            margin-top: 8rem;
+            width: 80rem;
+            margin-bottom: 18.5rem;
+
+            .card {
+                width: 70rem;
+                height: 24.5rem;
+
+                .left-card {
+
+                    h2 {
+                        font-size: 24px;
+                    }
+
+                    p {
+                        font-size: 15px;
+                        width: 27rem;
+                    }
+                }
+
+                .right-card {
+
+                    img {
+                        width: 22.75rem;
+                    }
+                }
+            }
+        }
+
+        .footer {
+
+            .footer-container {
+                width: 80rem;
+                padding: 8rem 5rem 0 5rem;
+
+                .card-start {
+                    height: 15.5rem;
+                    width: 45rem;
+
+                    h3 {
+                        font-size: 28px;
+                    }
+
+                    .footer-button {
+                        width: 21rem;
+                        height: 4rem;
+                        font-size: 17px;
+                    }
+                }
+
+                .footer-info {
+
+                    .desc-1 {
+
+                        .location {
+
+                            p {
+                                font-size: 14px;
+                                width: 20rem;
+                            }
+                        }
+                    }
+
+                    .desc-2 {
+                         .fake-link {
+                            font-size: 16px;
+                         }
+                    }
+
+                    .desc-3 {
+
+                        i {
+                            padding: 7px;
+                        }                    
+                    }
+                }
+
+                .copyright {
+                    font-size: 12px;
+                }
+            }
+        }
+    }    
+}
+
+@media (max-width: 1360px) {
+    .container {
+
+        .back {
+            height: 37rem;
+        }
+
+        .header {
+            width: 70rem;
+            height: 37rem;
+
+            .navbar {
+    
+                .icon {
+                    width: 180px;
+                    height: 25px;
+                }
+    
+                .nav-button {
+                    width: 180px;
+                    height: 40px;
+                }
+            }
+    
+            .header-desc {
+    
+                .left-side {
+
+                    gap: 1.3rem;
+    
+                    h1 {
+                        font-size: 24px;
+                        width: 21rem;
+                    }
+    
+                    p {
+                        font-size: 14px;
+                        width: 25rem;
+                    }
+    
+                    .general-button {
+                        width: 210px;
+                        font-size: 12px;
+                    }
+                }
+    
+                .right-side {
+    
+                    .header-img {
+                        width: 33rem;
+                    }
+                }
+            }
+        }
+
+        .content {
+            margin-top: 7rem;
+            width: 70rem;
+            margin-bottom: 17.5rem;
+
+            .card {
+                width: 60rem;
+                height: 23rem;
+
+                .left-card {
+
+                    h2 {
+                        font-size: 22px;
+                    }
+
+                    p {
+                        font-size: 14px;
+                        width: 24rem;
+                    }
+                }
+
+                .right-card {
+
+                    img {
+                        width: 20.75rem;
+                    }
+                }
+            }
+        }
+
+        .footer {
+            height: 32rem;
+
+            .footer-container {
+                width: 70rem;
+                height: 32rem;
+
+                .card-start {
+                    height: 13.5rem;
+                    width: 40rem;
+
+                    h3 {
+                        font-size: 25px;
+                    }
+
+                    .footer-button {
+                        width: 19rem;
+                        height: 3.5rem;
+                        font-size: 15px;
+                    }
+                }
+
+                .footer-info {
+
+                    .desc-1 {
+
+                        .location {
+
+                            p {
+                                font-size: 13px;
+                                width: 18rem;
+                            }
+                        }
+                    }
+
+                    .desc-2 {
+                         .fake-link {
+                            font-size: 14px;
+                         }
+                    }
+
+                    .desc-3 {
+
+                        width: 18.75rem;
+
+                        i {
+                            padding: 6px;
+                        }                    
+                    }
+                }
+
+                .copyright {
+                    font-size: 11px;
+                }
+            }
+        }
+    }    
+}
+
+@media (max-width: 1120px) {
+    .container {
+
+        .back {
+            height: 33rem;
+        }
+
+        .header {
+            width: 60rem;
+            height: 33rem;
+
+            .navbar {
+    
+                .icon {
+                    width: 160px;
+                }
+    
+                .nav-button {
+                    width: 170px;
+                    height: 36px;
+                }
+            }
+    
+            .header-desc {
+    
+                .left-side {
+
+                    gap: 0.8rem;
+    
+                    h1 {
+                        font-size: 20px;
+                        width: 18rem;
+                        line-height: 24px;
+                    }
+    
+                    p {
+                        font-size: 14px;
+                        width: 19rem;
+                        line-height: 22px;
+                    }
+    
+                    .general-button {
+                        width: 190px;
+                        height: 40px;
+                    }
+                }
+    
+                .right-side {
+    
+                    .header-img {
+                        width: 100%;
+                    }
+                }
+            }
+        }
+
+        .content {
+            margin-top: 6rem;
+            width: 60rem;
+            margin-bottom: 16.5rem;
+
+            .card {
+                width: 50rem;
+                height: 21rem;
+
+                .left-card {
+
+                    h2 {
+                        font-size: 20px;
+                    }
+
+                    p {
+                        width: 19rem;
+                    }
+                }
+
+                .right-card {
+
+                    img {
+                        width: 17.75rem;
+                    }
+                }
+            }
+        }
+
+        .footer {
+            height: 30rem;
+
+            .footer-container {
+                width: 60rem;
+                height: 30rem;
+                padding: 5rem 5rem 0 5rem;
+
+                .card-start {
+                    height: 12.5rem;
+                    width: 35rem;
+
+                    h3 {
+                        font-size: 22px;
+                    }
+
+                    .footer-button {
+                        width: 16rem;
+                        height: 3.2rem;
+                        font-size: 14px;
+                    }
+                }
+
+                .footer-info {
+
+                    .desc-1 {
+
+                        .location {
+
+                            p {
+                                font-size: 12px;
+                                width: 14rem;
+                                line-height: 18px;
+                            }
+                        }
+                    }
+
+                    .desc-2 {
+                         .fake-link {
+                            font-size: 13px;
+                         }
+                    }
+
+                    .desc-3 {
+
+                        width: 20.75rem;
+
+                        i {
+                            padding: 5px;
+                        }                    
+                    }
+                }
+
+                .copyright {
+                    font-size: 10px;
+                }
+            }
+        }
+    }    
+}
+
+@media (max-width: 960px) {
+    .container {
+
+        .back {
+            height: 50rem;
+        }
+
+        .header {
+            width: 50rem;
+            height: 50rem;
+            padding-bottom: 2rem;
+    
+            .header-desc {
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 3rem;
+    
+                .left-side {
+
+                    width: 100%;
+                    align-items: center;
+                    gap: 1.8rem;
+    
+                    h1 {
+                        font-size: 24px;
+                        width: 32rem;
+                        text-align: center;
+                    }
+    
+                    p {
+                        font-size: 14px;
+                        width: 32rem;
+                        text-align: center;
+                    }
+    
+                    .general-button {
+                        width: 290px;
+                        height: 40px;
+                    }
+                }
+    
+                .right-side {
+                    width: 100%;
+
+                    .header-img {
+                        width: 32rem;
+                    }
+                }
+            }
+        }
+
+        .content {
+            margin-top: 4rem;
+            width: 50rem;
+            margin-bottom: 17.5rem;
+
+            .card {
+                width: 32rem;
+                height: 34rem;
+                flex-direction: column-reverse;
+                justify-content: space-between;
+                padding: 3rem;
+
+                .left-card {
+                    align-items: center;
+                    width: 100%;
+
+                    h2 {
+                        font-size: 20px;
+                        text-align: center;
+                    }
+
+                    p {
+                        width: 24rem;
+                        text-align: center;
+                    }
+                }
+
+                .right-card {
+                    width: 100%;
+
+                    img {
+                        width: 22.75rem;
+                        height: 320px;
+                        object-fit: contain;
+                    }
+                }
+            }
+
+            .card-2 {
+                flex-direction: column;
+
+                .left-card {
+                    padding: 0;
+                }
+
+                .right-card {
+                    padding: 0;
+                    justify-content: center;
+                }
+            }
+        }
+
+        .footer {
+            height: 48rem;
+
+            .footer-container {
+                width: 42rem;
+                height: 48rem;
+                padding: 5rem 5rem 0 5rem;
+                gap: 24px;
+
+                .card-start {
+                    height: 14.5rem;
+                    width: 32rem;
+                }
+
+                .footer-info {
+                    flex-direction: column;
+                    gap: 17px;
+
+                    .desc-1 {
+                        width: 100%;
+                        gap: 24px;
+                        margin-bottom: 24px;
+
+                        .location {
+
+                            p {
+                                font-size: 13px;
+                                width: 20rem;
+                            }
+                        }
+                    }
+
+                    .desc-2 {
+                        width: 100%;
+
+                         .fake-link {
+                            font-size: 14px;
+                         }
+                    }
+
+                    .desc-3 {
+                        width: 100%;
+                        margin-top: 30px;                  
+                    }
+                }
+
+                .copyright {
+                    align-self: center;
+                    font-size: 11px;
+                }
+            }
+        }
+    }    
+}
+
+@media (max-width: 800px) {
+    .container {
+
+        .back {
+            height: 42rem;
+        }
+
+        .header {
+            height: 42rem;
+            width: 35rem;
+            padding-top: 2rem;
+
+            .navbar {
+                align-items: center;
+
+                .icon {
+                    width: 134px;
+                    height: 20px;
+                }
+    
+                .nav-button {
+                    width: 120px;
+                    height: 28px;
+                    font-size: 13px;
+                }
+            }
+    
+            .header-desc {
+                gap: 2.6rem;
+    
+                .left-side {
+                    gap: 1.4rem;
+    
+                    h1 {
+                        width: 20rem;
+                        line-height: 34px;
+                    }
+    
+                    p {
+                        width: 17rem;
+                    }
+    
+                    .general-button {
+                        width: 236px;
+                    }
+                }
+    
+                .right-side {
+
+                    .header-img {
+                        width: 18rem;
+                    }
+                }
+            }
+        }
+
+        .content {
+            width: 35rem;
+            margin-top: 3.6rem;
+            margin-bottom: 14rem;
+
+            .card {
+                width: 24rem;
+                height: 32rem;
+
+                .left-card {
+
+                    p {
+                        width: 16rem;
+                    }
+                }
+
+                .right-card {
+
+                    img {
+                        width: 17.17rem;
+                        height: 232px;
+                    }
+                }
+            }
+        }
+
+        .footer {
+
+            .footer-container {
+                width: 34rem;
+
+                .card-start {
+                    height: 11.5rem;
+                    width: 24rem;
+                    gap: 1.4rem;
+                    top: -20px;
+
+                    h3 {
+                        font-size: 19px;
+                    }
+
+                    .footer-button {
+                        width: 14rem;
+                        height: 3rem;
+                        font-size: 12px;
+                    }
+                }
+
+                .icon-2 {
+                    width: 170px;
+                }
+
+                .footer-info {
+
+                    .desc-1 {
+
+                        .location {
+
+                            p {
+                                font-size: 14px;
+                                width: 16.1rem;
+                            }
+                        }
+                    }
+
+                    .desc-2 {
+
+                         .fake-link {
+                            font-size: 15px;
+                         }
+                    }
+
+                    .desc-3 {
+                        justify-content: center;              
+                    }
+                }
+            }
+        }
+    }    
+}
+
+@media (max-width: 560px) {
+    .container {
+
+        .header {
+            width: 20rem;
+            padding-left: 0;
+            padding-right: 0;
+
+            .navbar {
+
+                .icon {
+                    width: 100px;
+                    height: 16px;
+                }
+    
+                .nav-button {
+                    width: 110px;
+                    height: 26px;
+                }
+            }
+    
+            .header-desc {
+    
+                .left-side {
+    
+                    p {
+                        width: 16.4rem;
+                    }
+                }
+            }
+        }
+
+        .content {
+            margin-bottom: 13rem;
+            width: 20rem;
+
+            .card {
+                height: 28rem;
+                width: 20rem;
+                padding: 2rem;
+
+                .right-card {
+
+                    img {
+                        width: 15.17rem;
+                        height: 224px;
+                    }
+                }
+            }
+        }
+
+        .footer {
+
+            .footer-container {
+                width: 20rem;
+                padding-right: 0;
+                padding-left: 0;
+
+                .card-start {
+                    height: 10.5rem;
+                    width: 20rem;
+                    gap: 1rem;
+                    top: -28px;
+
+                    h3 {
+                        font-size: 18px;
+                        width: 12rem;
+                        text-align: center;
+                    }
+
+                    .footer-button {
+                        width: 13rem;
+                        height: 2.6rem;
+                    }
+                }
+            }
+        }
+    }    
+}
